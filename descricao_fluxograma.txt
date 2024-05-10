@@ -1,0 +1,6 @@
+A função Cloud Function de extração é acionada periodicamente para extrair os dados da API de fatos sobre gatos e enviá-los para o Google Cloud Storage.
+Os dados extraídos são armazenados no Google Cloud Storage em um bucket.
+Uma função Cloud Function de disponibilidade de dados é acionada sempre que novos dados são adicionados ao Google Cloud Storage. Essa função publica uma mensagem no Google Cloud Pub/Sub.
+O Google Cloud Pub/Sub envia a mensagem para um tópico de notificações.
+Uma função Cloud Function de API é acionada sempre que uma nova mensagem é recebida no tópico de notificações. Essa função recupera os dados mais recentes do Google Cloud Storage e disponibiliza-os para o usuário final.
+O usuário final acessa os dados por meio de um aplicativo ou interface de usuário.
